@@ -1,0 +1,19 @@
+{
+    "manifest_version": 3,
+    "name": "mg-video-catcher",
+    "version": "1.0",
+    "description": "Extension to found M3U8 streams on visited page.",
+    "action": {
+        "default_popup": "index.html"
+    },
+    "background": {
+        "service_worker": "background-service-worker.js"
+    },
+    "permissions": [
+        "webRequest",
+        "storage"
+    ],
+    "host_permissions": [
+        "*://*/*"
+    ]
+}
