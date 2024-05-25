@@ -34,11 +34,7 @@ function App() {
           <li
             className="max-w-full block break-all cursor-pointer hover:blur-sm"
             key={url}
-            onClick={() =>
-              copyToClipboard(
-                `ffmpeg -i "${url}" -bsf:a aac_adtstoasc -c copy output.mp4`
-              )
-            }
+            onClick={() => copyToClipboard(url)}
           >
             {url}
           </li>
