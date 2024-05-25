@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "mg-video-catcher",
+    "name": "m3u8-sniffer",
     "version": "1.0",
     "description": "Extension to found M3U8 streams on visited page.",
     "action": {

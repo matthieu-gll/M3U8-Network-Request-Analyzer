@@ -13,7 +13,7 @@ const handleVideoRequest = (details) => {
 
 chrome.webRequest.onCompleted.addListener(
   function (details) {
-    if (details.url.includes("m3u8")) {
+    if (details.url.includes(".m3u8")) {
       handleVideoRequest(details);
     }
   },

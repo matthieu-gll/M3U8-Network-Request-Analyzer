@@ -1,34 +1,8 @@
-import { useEffect, useState } from "react";
+import { useVideos } from "../../hooks/useVideos";
+import { copyToClipboard } from "../../utils/copyToClipboard";
 
 function App() {
-  const [videos, setVideos] = useState<string[]>([]);
-
-  const getVideos = () => {
-    chrome.runtime.sendMessage({ action: "getVideos" }, function (response) {
-      setVideos(response.videos);
-    });
-  };
-
-  useEffect(() => {
-    getVideos();
-  }, []);
-
-  const clearVideos = () => {
-    chrome.runtime.sendMessage({ action: "clearVideos" }, function (response) {
-      setVideos(response.videos);
-    });
-  };
-
-  const copyToClipboard = (url: string) => {
-    navigator.clipboard.writeText(url).then(
-      () => {
-        alert("Lien copié dans le presse-papiers");
-      },
-      (err) => {
-        console.error("Erreur lors de la copie du lien: ", err);
-      }
-    );
-  };
+  const { clearVideos, videos } = useVideos();
 
   return (
     <main className="p-4 w-[500px] h-[500px] relative overflow-y-auto bg-neutral-950 text-neutral-50">
